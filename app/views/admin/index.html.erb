@@ -1,0 +1,5 @@
+<h1>User Management</h1>
+<% @users.each do |user| %>
+  <h4>Name: <%= user.full_name%></h4>
+  <p>User since: <%= user.created_at%>
+<% end %>
