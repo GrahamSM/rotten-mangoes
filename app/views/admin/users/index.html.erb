@@ -1,4 +1,4 @@
-
+<%= link_to "Go home", root_path %>
 <h1>User Management</h1>
 <% @users.each do |user| %>
   <h4>Name: <%=link_to user.full_name, admin_user_path(user)%></h4>
