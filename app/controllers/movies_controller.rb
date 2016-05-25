@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
     search = false
     if params[:title] || params[:director] || params[:runtime_in_minutes]
       search = true
-      @movies = Movie.title_search(params[:title]) || Movie.director_search(params[:director])
+      @movies = Movie.single_search(params[:query])
       if params[:runtime_in_minutes] && @movies.empty?
           case params[:runtime_in_minutes]
           when "1"

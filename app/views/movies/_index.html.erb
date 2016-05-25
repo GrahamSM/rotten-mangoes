@@ -27,8 +27,7 @@
       <%end%>
       <div class="row" id = "movie-search">
         <%= form_tag movies_path, method: :get do %>
-            <%= text_field_tag :title, params[:title], placeholder: "Title" %>
-            <%= text_field_tag :director, params[:director], placeholder: "Director" %>
+            <%= text_field_tag :query, params[:query], placeholder: "Search" %>
             <%= select_tag :runtime_in_minutes, options_for_select([[ "Under 90 Minutes", "1"], ["Between 90 and 120 Minutes","2"], ["Over 120 Minutes","3"]], params[:runtime_in_minutes]) %>
             <%= submit_tag "Search", :name => nil, :class => 'btn-primary' %>
         <% end %>
