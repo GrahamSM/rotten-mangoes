@@ -6,6 +6,7 @@ class Movie < ActiveRecord::Base
   scope :runtime_search_less, ->(runtime) {where("runtime_in_minutes < ?", runtime)}
   scope :runtime_search_between, ->(runtime_one, runtime_two) {where("runtime_in_minutes > :runtime_one AND runtime_in_minutes < :runtime_two", {runtime_one: runtime_one, runtime_two: runtime_two})}
   scope :runtime_search_greater, ->(runtime) {where("runtime_in_minutes >= ?", runtime)}
+  scope :single_search, ->(query) {where("title like :kw or director like :kw", :kw=>"%#{query}%")}
   mount_uploader :poster_image_url, ImageUploader
 
   validates :title,
