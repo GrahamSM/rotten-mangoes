@@ -2,15 +2,15 @@
   <small>
     <div class="btn-group">
       <% if current_user %>
-          <h5>Signed in as <%= current_user.full_name %></h5><%= link_to "Log out", session_path("current"), method: :delete, :class => "btn" %></small>
+          <h5>Signed in as <%= current_user.full_name %></h5><%= link_to "Log out", session_path("current"), method: :delete, :class => 'btn btn-large btn-primary'%></small>
       <% else %>
-        <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path, :class => "btn" %>
+        <%= link_to "Log In", new_session_path, :class => 'btn btn-large btn-primary'%>  <%= link_to "Sign Up", new_user_path, :class => 'btn btn-large btn-primary' %>
       <% end %>
       <% if current_user && current_user.admin? %>
-        <%= link_to "Admin", admin_users_path, :class => "btn" %>
+        <%= link_to "Admin", admin_users_path, :class => 'btn btn-large btn-primary' %>
       <% end %>
       <% if current_user && current_user.admin? && session[:user_id] != session[:showing]%>
-        <%= link_to "Back to profile", admin_user_back_to_path(current_user), :class => "btn" %>
+        <%= link_to "Back to profile", admin_user_back_to_path(current_user), :class => 'btn btn-large btn-primary' %>
       <% end %>
     </div>
   </small>
