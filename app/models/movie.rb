@@ -1,7 +1,11 @@
 class Movie < ActiveRecord::Base
 
   has_many :reviews
-
+  scope :title_search, ->(title_q) {where("title like :kw", :kw=>"%#{title_q}%")}
+  scope :director_search, ->(director_q) {where("director like :kw", :kw=>"%#{director_q}%")}
+  scope :runtime_search_less, ->(runtime) {where("runtime_in_minutes < ?", runtime)}
+  scope :runtime_search_between, ->(runtime_one, runtime_two) {where("runtime_in_minutes > :runtime_one AND runtime_in_minutes < :runtime_two", {runtime_one: runtime_one, runtime_two: runtime_two})}
+  scope :runtime_search_greater, ->(runtime) {where("runtime_in_minutes >= ?", runtime)}
   mount_uploader :poster_image_url, ImageUploader
 
   validates :title,
