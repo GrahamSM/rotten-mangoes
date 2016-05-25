@@ -36,4 +36,7 @@ class Admin::UsersController < ActionController::Base
     redirect_to admin_users_path
   end
 
+  def switch
+  end
+
 end

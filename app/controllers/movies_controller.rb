@@ -1,6 +1,30 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = []
+    binding.pry
+    if params[:title] || params[:director] || params[:runtime_in_minutes]
+      movie = Movie.find_by(title: params[:title]) if (params[:title])
+      @movies << movie if movie && !(movie.empty?)
+      movie = Movie.find_by(director: params[:director])
+      @movies << movie if movie && !(movie.empty?)
+      if params[:runtime_in_minutes]
+        binding.pry
+        case params[:runtime_in_minutes]
+        when "1"
+          movie = Movie.where("runtime_in_minutes < 90")
+          @movies << movie if movie && !(movie.empty?)
+        when "2"
+          movie = Movie.where("runtime_in_minutes >= 90 AND runtime_in_minutes <= 120")
+          @movies << movie if movie && !(movie.empty?)
+          binding.pry
+        when "3"
+          movie = Movie.where("runtime_in_minutes >= 120")
+          @movies << movie if movie && !(movie.empty?)
+        end
+      end
+    else
+      @movies = Movie.all
+    end
   end
 
   def show
