@@ -8,5 +8,9 @@
     <% if current_user && current_user.admin? %>
       <%= link_to "Admin", admin_users_path %>
     <% end %>
+    <% if current_user && current_user.admin? && session[:user_id] != session[:showing]%>
+      <%= link_to "Back to profile", admin_user_back_to_path(current_user) %>
+    <% end %>
+
   </small>
 </footer>

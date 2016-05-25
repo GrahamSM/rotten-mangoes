@@ -41,4 +41,9 @@ class Admin::UsersController < ActionController::Base
     redirect_to root_path
   end
 
+  def back_to
+    session[:showing] = session[:user_id]
+    redirect_to root_path
+  end
+
 end

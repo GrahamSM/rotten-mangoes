@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users do
       get 'switch'
+      get 'back_to'
     end
   end
 
