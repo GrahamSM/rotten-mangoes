@@ -37,6 +37,8 @@ class Admin::UsersController < ActionController::Base
   end
 
   def switch
+    session[:showing] = params[:user_id].to_i
+    redirect_to root_path
   end
 
 end

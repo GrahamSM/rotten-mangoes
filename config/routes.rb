@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'reviews/create'
 
+
+
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
@@ -12,7 +14,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :admin do
-    resources :users
+    resources :users do
+      get 'switch'
+    end
   end
 
 

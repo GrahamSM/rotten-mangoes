@@ -3,4 +3,5 @@
 <% @users.each do |user| %>
   <h4>Name: <%=link_to user.full_name, admin_user_path(user)%></h4>
   <p>User since: <%= user.created_at%>
+    <%= link_to "View as this user", admin_user_switch_path(user)%>
 <% end %>
