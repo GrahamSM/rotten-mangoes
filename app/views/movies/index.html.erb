@@ -1,5 +1,5 @@
 <% if  current_user && (current_user.admin? && (session[:user_id] != session[:showing])) %>
-  <h1>Admin mode. Viewing as <%= User.find(session[:showing]).full_name %></h1>
+  <h1>Admin mode. Viewing as <%= User.find(session[:showing]).full_name%></h1>
 <% end %>
 <h1>Rotten Mangoes</h1>
 <%= link_to "Submit a movie!", new_movie_path %>

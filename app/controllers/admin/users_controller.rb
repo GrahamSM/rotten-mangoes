@@ -32,8 +32,10 @@ class Admin::UsersController < ActionController::Base
 
   def destroy
     @user = User.find(params[:id])
+    binding.pry
+    UserMailer.delete_email(@user)
     @user.destroy
-    redirect_to admin_users_path
+    redirect_to root_path
   end
 
   def switch
