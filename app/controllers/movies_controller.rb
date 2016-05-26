@@ -1,5 +1,8 @@
 class MoviesController < ApplicationController
   def index
+    if current_user && current_user.admin?
+      redirect_to admin_movies_path
+    end
     search = false
     if params[:title] || params[:director] || params[:runtime_in_minutes]
       search = true
