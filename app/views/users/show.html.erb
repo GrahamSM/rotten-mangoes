@@ -1,25 +1,25 @@
 <%= link_to "Back to all movies", movies_path, class: 'btn btn-primary'%>
-<h1><%= @user.full_name %>'s Profile</h1>
+<h2><%= @user.full_name %>'s Profile</h2>
 <div class="container" id="user-show-container">
   <div class="row" id="user-display-row">
     <div class="col-md-4">
-      <%if @user.profile_picture%>
-        <%= link_to image_tag(@user.profile_picture, user_path(@movie)) %>
-      <%else%>
-        <small>No profile picture available</small>
-      <%end%>
+      <small>No profile picture available</small>
     </div>
     <div class="col-md-4">
       <h4>Contact Information:</h4>
       <p><%=@user.email%></p>
     </div>
     <div class="col-md-4" id="user-reviews">
+
       <% if @user.reviews %>
+        <h4><%=@user.firstname%>'s Reviews:</h4>
+        <hr>
         <%@user.reviews.each do |review|%>
-          <h4>Movie: <% Movie.find(review.movie_id).title %></h4>
+          <h4>Movie: <%= Movie.find(review.movie_id).title %></h4>
           <p><%= review.text %></p>
           <p><%= review.rating_out_of_ten %>/10</p>
           <br/>
+          <hr>
         <%end%>
       <%else%>
         <h4>This user has not written any reviews</h4>

@@ -1,4 +1,7 @@
-class SessionsController < ApplicationController
+class SessionController < ApplicationController
+
+  def new
+  end
 
   def create
     user = User.find_by(email: params[:email])
@@ -14,7 +17,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to movies_path, notice: "Adios!"
+    session[:showing] = nil
+    redirect_to root_url, :notice => "Logged out!"
   end
 
 end
