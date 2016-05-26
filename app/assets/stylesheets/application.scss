@@ -18,6 +18,11 @@
  @import "sessions";
  @import "users";
 
+ body{
+   margin:10px;
+   padding:5px;
+ }
+
 img{
   max-height: 450px;
   max-width: 314px;
@@ -49,4 +54,15 @@ footer{
 
 #new-movie-row{
   margin-top:10px;
+}
+
+#user-reviews{
+  overflow-y: scroll;
+  list-style: none;
+  max-height: 550px;
+  margin-bottom: 50px;
+}
+
+#user-show-container{
+  margin-top:50px;
 }

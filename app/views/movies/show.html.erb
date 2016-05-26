@@ -20,7 +20,7 @@
       <% @movie.reviews.each do |review| %>
         <p><%= review.text %></p>
         <p><%= review.rating_out_of_ten %>/10</p>
-        <small>- <%= review.user.full_name %></small><br/>
+        <small>- <%= review.user.full_name %></small> <%= link_to "View Profile", user_path(review.user), class: 'btn btn-primary'%><br/>
       <% end %>
       <p><%= link_to "Write a review!", new_movie_review_path(@movie) %></p>
     <% else %>

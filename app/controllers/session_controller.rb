@@ -1,4 +1,5 @@
-class SessionsController < ApplicationController
+class SessionController < ApplicationController
+
   def new
   end
 
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:showing] = nil
-    redirect_to movies_path, notice: "Adios!"
+    redirect_to root_url, :notice => "Logged out!"
   end
 
 end
