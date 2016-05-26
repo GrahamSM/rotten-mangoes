@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  def new
-  end
 
   def create
     user = User.find_by(email: params[:email])
@@ -16,7 +14,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    session[:showing] = nil
     redirect_to movies_path, notice: "Adios!"
   end
 
