@@ -1,0 +1,36 @@
+<div class = "container">
+  <div class = "row" id = "parent-row">
+    <%= link_to "Submit a movie!", new_movie_path, :class => 'btn btn-large btn-primary' %>
+    <hr>
+    <% if @movies.kind_of?(Array) %>
+      <% @movies.flatten! %>
+    <% end %>
+      <% @movies.each do |movie| %>
+        <div class = "row" id = "movie-display-row">
+          <div class = "col-md-6" id = "movie-img-col">
+              <%= link_to image_tag(movie.poster_image_url), movie_path(movie), :class => "movie-img"%>
+          </div>
+          <div class = "col-md-6" id = "movie-content-col">
+            <h2><%=link_to movie.title, movie_path(movie)%></h2>
+            <h3><%= formatted_date(movie.release_date) %></h3>
+            <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+            <p><%= movie.description %></p>
+            <% if movie.review_average.nil? || movie.review_average > 0.5 %>
+              <p><span class="label label-success">Average rating:</span><%= movie.review_average %></p>
+            <% else %>
+              <p><span class="label label-danger">Average rating:</span><%= movie.review_average %></p>
+            <% end %>
+
+          </div>
+        </div>
+        <hr>
+      <%end%>
+      <div class="row" id = "movie-search">
+        <%= form_tag movies_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], placeholder: "Search" %>
+            <%= select_tag :runtime_in_minutes, options_for_select([[ "Under 90 Minutes", "1"], ["Between 90 and 120 Minutes","2"], ["Over 120 Minutes","3"]], params[:runtime_in_minutes]) %>
+            <%= submit_tag "Search", :name => nil, :class => 'btn-primary' %>
+        <% end %>
+      </div>
+  </div>
+</div>

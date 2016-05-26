@@ -66,3 +66,15 @@ footer{
 #user-show-container{
   margin-top:50px;
 }
+
+.ind-review{
+  border-color: black;
+  border-width: 0.5px;
+  border:solid;
+  margin-bottom: 2px;
+}
+
+#show-reviews{
+  overflow-y: scroll;
+  max-height:auto;
+}

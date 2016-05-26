@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :movies
+  end
+
 
   root to: 'movies#index'
 
