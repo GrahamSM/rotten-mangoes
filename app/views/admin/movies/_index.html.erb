@@ -27,9 +27,9 @@
             <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
             <p><%= movie.description %></p>
             <% if movie.review_average.nil? || movie.review_average > 0.5 %>
-              <p><span class="label label-success">Average rating:</span><%= movie.review_average %></p>
+              <p><span class="label label-success">Average rating:</span> <%= movie.review_average %></p>
             <% else %>
-              <p><span class="label label-danger">Average rating:</span><%= movie.review_average %></p>
+              <p><span class="label label-danger">Average rating:</span> <%= movie.review_average %></p>
             <% end %>
 
           </div>

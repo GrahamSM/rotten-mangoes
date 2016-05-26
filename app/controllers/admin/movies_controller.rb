@@ -51,9 +51,10 @@ class Admin::MoviesController < Admin::ApplicationController
   end
 
   def destroy
+    binding.pry
     @movie = Movie.find(params[:id])
     @movie.destroy
-    redirect_to movies_path
+    redirect_to admin_movies_path
   end
 
   protected

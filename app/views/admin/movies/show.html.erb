@@ -3,9 +3,9 @@
   <div class="row" id = "movie-show-row">
     <div class="col-md-6">
       <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
-      <h2><%= @movie.title %>
-      <%= link_to "edit", edit_movie_path(@movie), :class => 'btn btn-small btn-primary' %>
-      <%= link_to "delete", movie_path, method: :delete, :class => 'btn btn-danger', :"data-confirm" => "You sure?" %>
+      <h2><%= @movie.title %></h2>
+      <%= link_to "edit", edit_admin_movie_path(@movie), :class => 'btn btn-small btn-primary' %>
+      <%= button_to "delete", admin_movie_path(@movie), method: :delete, :class => 'btn btn-danger'%>
       <h3><%= formatted_date(@movie.release_date) %></h3>
       <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
       <p><%= @movie.description %></p>

@@ -19,17 +19,17 @@
       <% @movies.each do |movie| %>
         <div class = "row" id = "movie-display-row">
           <div class = "col-md-6" id = "movie-img-col">
-              <%= link_to image_tag(movie.poster_image_url), admin_movie_path(movie), :class => "movie-img"%>
+              <%= link_to image_tag(movie.poster_image_url), movie_path(movie), :class => "movie-img"%>
           </div>
           <div class = "col-md-6" id = "movie-content-col">
-            <h2><%=link_to movie.title, admin_movie_path(movie)%></h2>
+            <h2><%=link_to movie.title, movie_path(movie)%></h2>
             <h3><%= formatted_date(movie.release_date) %></h3>
             <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
             <p><%= movie.description %></p>
             <% if movie.review_average.nil? || movie.review_average > 0.5 %>
-              <p><span class="label label-success">Average rating:</span><%= movie.review_average %></p>
+              <p><span class="label label-success">Average rating:</span> <%= movie.review_average %></p>
             <% else %>
-              <p><span class="label label-danger">Average rating:</span><%= movie.review_average %></p>
+              <p><span class="label label-danger">Average rating:</span> <%= movie.review_average %></p>
             <% end %>
 
           </div>
