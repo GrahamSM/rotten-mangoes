@@ -1,0 +1,19 @@
+<div class="container" id="user-show-container">
+  <div class="row" id="user-display-row">
+    <div class="col-md-6">
+      <h1><%= @user.full_name %>'s Profile</h1>
+      <h3><%= @user.email %></h3>
+      <p>Joined: <%=@user.created_at%>
+    </div>
+    <div class="col-md-6" id="user-reviews">
+      <% if @user.reviews %>
+        <%@user.reviews.each do |review|%>
+          <h4>Movie: <% Movie.find(review.movie_id).title %></h4>
+          <p><%= review.text %></p>
+          <p><%= review.rating_out_of_ten %>/10</p>
+          <br/>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+</div>

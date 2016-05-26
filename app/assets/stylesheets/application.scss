@@ -50,3 +50,14 @@ footer{
 #new-movie-row{
   margin-top:10px;
 }
+
+#user-reviews{
+  overflow-y: scroll;
+  list-style: none;
+  max-height: 550px;
+  margin-bottom: 50px;
+}
+
+#user-show-container{
+  margin-top:50px;
+}
