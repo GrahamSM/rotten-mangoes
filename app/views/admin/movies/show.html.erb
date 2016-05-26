@@ -4,10 +4,8 @@
     <div class="col-md-6">
       <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
       <h2><%= @movie.title %>
-      <% if @movie.user_id == current_user.id%>
-        <%= link_to "edit", edit_movie_path(@movie), :class => 'btn btn-small btn-primary' %>
-        <%= link_to "delete", movie_path, method: :delete, :class => 'btn btn-danger', :"data-confirm" => "You sure?" %>
-      <%end%>
+      <%= link_to "edit", edit_movie_path(@movie), :class => 'btn btn-small btn-primary' %>
+      <%= link_to "delete", movie_path, method: :delete, :class => 'btn btn-danger', :"data-confirm" => "You sure?" %>
       <h3><%= formatted_date(@movie.release_date) %></h3>
       <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
       <p><%= @movie.description %></p>

@@ -1,8 +1,5 @@
-class MoviesController < ApplicationController
+class Admin::MoviesController < Admin::ApplicationController
   def index
-    if current_user && current_user.admin?
-      redirect_to admin_movies_path
-    end
     search = false
     if params[:title] || params[:director] || params[:runtime_in_minutes]
       search = true
@@ -65,5 +62,4 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description)
   end
-
 end

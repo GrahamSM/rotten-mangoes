@@ -2,6 +2,7 @@ class Admin::ApplicationController < ActionController::Base
 
   before_action :check_admin
   helper_method :current_user, :can_switch_view?
+  layout 'application'
 
   protected
 
